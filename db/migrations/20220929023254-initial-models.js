@@ -10,9 +10,9 @@ module.exports = {
     await queryInterface.createTable(PRODUCT_TABLE, {
       id: {
         allowNull: false,
+        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.DataTypes.UUID,
-        defaultValue: Sequelize.UUIDV4
+        type: Sequelize.INTEGER
       },
       name: {
         type: Sequelize.DataTypes.STRING,
@@ -30,9 +30,9 @@ module.exports = {
     await queryInterface.createTable(ROLE_TABLE, {
       id: {
         allowNull: false,
-        defaultValue: Sequelize.UUIDV4,
+        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.DataTypes.UUID
+        type: Sequelize.INTEGER
       },
       name: {
         allowNull: false,
@@ -43,9 +43,9 @@ module.exports = {
     await queryInterface.createTable(USER_TABLE, {
       id: {
         allowNull: false,
-        defaultValue: Sequelize.UUIDV4,
+        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.DataTypes.UUID
+        type: Sequelize.INTEGER
       },
       document: {
         allowNull: false,
@@ -67,44 +67,23 @@ module.exports = {
       },
       roleId: {
         field: 'role_id',
-        allowNull: false,
-        type: Sequelize.DataTypes.UUID,
-        references: {
-          model: ROLE_TABLE,
-          key: 'id'
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'SET NULL'
+        type: Sequelize.INTEGER
       }
     });
     await queryInterface.createTable(SALE_TABLE, {
       id: {
         allowNull: false,
+        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.DataTypes.UUID,
-        defaultValue: Sequelize.UUIDV4,
+        type: Sequelize.INTEGER
       },
       productId: {
         field: 'product_id',
-        allowNull: false,
-        type: Sequelize.DataTypes.UUID,
-        references: {
-          model: PRODUCT_TABLE,
-          key: 'id'
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'SET NULL'
+        type: Sequelize.INTEGER
       },
       userId: {
         field: 'user_id',
-        allowNull: false,
-        type: Sequelize.DataTypes.UUID,
-        references: {
-          model: USER_TABLE,
-          key: 'id'
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'SET NULL'
+        type: Sequelize.INTEGER
       },
       qty: {
         allowNull: false,

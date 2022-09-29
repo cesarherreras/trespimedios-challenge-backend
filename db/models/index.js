@@ -9,7 +9,10 @@ function setupModels(sequelize) {
   Role.init(RoleSchema, Role.config(sequelize));
   Product.init(ProductSchema, Product.config(sequelize));
 
-//   User.associate(sequelize.models);
+  User.associate(sequelize.models);
+  Sale.associate(sequelize.models);
+  Product.associate(sequelize.models);
+  Role.associate(sequelize.models);
 }
 
 module.exports = setupModels;

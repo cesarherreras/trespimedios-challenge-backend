@@ -4,7 +4,7 @@
   },
   "extends": ["eslint:recommended", "eslint-config-prettier"],
   "rules": {
-    "no-console": "warn"
+    "no-console": "off"
   },
   "env": {
     "es6": true,

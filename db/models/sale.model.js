@@ -7,9 +7,9 @@ const SALE_TABLE = 'sales';
 const SaleSchema = {
   id: {
     allowNull: false,
+    defaultValue: DataTypes.UUIDV4,
     primaryKey: true,
-    type: DataTypes.UUID,
-    defaultValue: Sequelize.UUIDV4,
+    type: DataTypes.UUID
   },
   productId: {
     field: 'product_id',

@@ -1,11 +1,11 @@
-const { Model, DataTypes, Sequelize } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 
 const ROLE_TABLE = 'roles';
 
 const RoleSchema = {
   id: {
     allowNull: false,
-    defaultValue: Sequelize.UUIDV4,
+    defaultValue: DataTypes.UUIDV4,
     primaryKey: true,
     type: DataTypes.UUID
   },

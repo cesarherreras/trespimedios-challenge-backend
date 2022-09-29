@@ -1,12 +1,11 @@
-const { Model, DataTypes, Sequelize } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const { ROLE_TABLE } = require('./role.model');
 
 const USER_TABLE = 'users';
 
 const UserSchema = {
   id: {
-    allowNull: false,
-    defaultValue: Sequelize.UUIDV4,
+    defaultValue: DataTypes.UUIDV4,
     primaryKey: true,
     type: DataTypes.UUID
   },
@@ -35,9 +34,7 @@ const UserSchema = {
     references: {
       model: ROLE_TABLE,
       key: 'id'
-    },
-    onUpdate: 'CASCADE',
-    onDelete: 'SET NULL'
+    }
   }
 }
 

@@ -1,13 +1,13 @@
-const { Model, DataTypes, Sequelize } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 
 const PRODUCT_TABLE = 'products';
 
 const ProductSchema = {
   id: {
     allowNull: false,
+    defaultValue: DataTypes.UUIDV4,
     primaryKey: true,
-    type: DataTypes.UUID,
-    defaultValue: Sequelize.UUIDV4
+    type: DataTypes.UUID
   },
   name: {
     type: DataTypes.STRING,
