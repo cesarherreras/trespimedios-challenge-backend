@@ -46,11 +46,9 @@ const SaleSchema = {
 };
 
 class Sale extends Model {
-  static associate() {
-    // this.hasOne(models.Customer, {
-    //   as: 'customer',
-    //   foreignKey: 'userId'
-    // });
+  static associate(models) {
+    this.belongsTo(models.User, { as: 'usersSale' });
+    this.belongsTo(models.Product, { as: 'products' });
   }
 
   static config(sequelize) {

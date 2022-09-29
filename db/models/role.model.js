@@ -17,11 +17,11 @@ const RoleSchema = {
 };
 
 class Role extends Model {
-  static associate() {
-    // this.hasOne(models.Customer, {
-    //   as: 'customer',
-    //   foreignKey: 'userId'
-    // });
+  static associate(models) {
+    this.hasMany(models.User, {
+      as: 'usersRole',
+      foreignKey: 'roleId'
+    });
   }
 
   static config(sequelize) {

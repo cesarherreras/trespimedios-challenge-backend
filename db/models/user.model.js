@@ -42,11 +42,12 @@ const UserSchema = {
 }
 
 class User extends Model {
-  static associate() {
-    // this.hasOne(models.Customer, {
-    //   as: 'customer',
-    //   foreignKey: 'userId'
-    // });
+  static associate(models) {
+    this.belongsTo(models.Role, { as: 'roles' });
+    this.hasMany(models.Sale, {
+      as: 'sales',
+      foreignKey: 'userId'
+    });
   }
 
   static config(sequelize) {
