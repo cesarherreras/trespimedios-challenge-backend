@@ -25,8 +25,8 @@ router.get('/monthly',
   async (req, res, next) => {
   try {
     const { month, year } = req.query;
-    const users = await service.getMonthly(month, year);
-    res.json(users);
+    const monthlySales = await service.getMonthly(month, year);
+    res.json(monthlySales);
   } catch (error) {
     next(error);
   }

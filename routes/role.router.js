@@ -13,8 +13,8 @@ router.get('/',
   checkRoles('admin'),
   async (req, res, next) => {
   try {
-    const users = await service.find();
-    res.json(users);
+    const roles = await service.find();
+    res.json(roles);
   } catch (error) {
     next(error);
   }
@@ -26,8 +26,8 @@ router.get('/:id',
   async (req, res, next) => {
   try {
     const id = req.params.id;
-    const users = await service.findById(id);
-    res.json(users);
+    const role = await service.findById(id);
+    res.json(role);
   } catch (error) {
     next(error);
   }
@@ -40,8 +40,8 @@ router.post('/',
   async (req, res, next) => {
     try {
       const body = req.body;
-      const newUser = await service.create(body);
-      res.status(201).json(newUser);
+      const newRole = await service.create(body);
+      res.status(201).json(newRole);
     } catch (error) {
       next(error);
     }

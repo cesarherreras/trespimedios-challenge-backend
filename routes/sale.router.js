@@ -12,8 +12,8 @@ const service = new SaleService();
 router.get('/',
   async (req, res, next) => {
   try {
-    const users = await service.find();
-    res.json(users);
+    const sales = await service.find();
+    res.json(sales);
   } catch (error) {
     next(error);
   }
@@ -25,8 +25,8 @@ router.get('/:id',
   async (req, res, next) => {
   try {
     const id = req.params.id;
-    const users = await service.findOne(id);
-    res.json(users);
+    const sale = await service.findOne(id);
+    res.json(sale);
   } catch (error) {
     next(error);
   }
@@ -38,8 +38,8 @@ router.post('/',
   async (req, res, next) => {
     try {
       const body = req.body;
-      const newUser = await service.create(body);
-      res.status(201).json(newUser);
+      const newSale = await service.create(body);
+      res.status(201).json(newSale);
     } catch (error) {
       next(error);
     }
@@ -53,8 +53,8 @@ router.delete('/:id',
   async (req, res, next) => {
     try {
       const { id } = req.params;
-      const newUser = await service.delete(id);
-      res.status(201).json(newUser);
+      const sale = await service.delete(id);
+      res.status(201).json(sale);
     } catch (error) {
       next(error);
     }
