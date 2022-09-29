@@ -1,0 +1,25 @@
+{
+  "name": "trespimedios-api",
+  "version": "1.0.0",
+  "description": "Store API REST using Node.js",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint --ignore-path .gitignore",
+    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|json)\""
+  },
+  "keywords": [
+    "Node.js",
+    "Express.js",
+    "PostgreSQL",
+    "Docker"
+  ],
+  "author": "Cesar Herrera <cesarherreras@live.com> (https://github.com/cesarherreras)",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.24.0",
+    "eslint-config-prettier": "^8.5.0"
+  },
+  "dependencies": {
+    "prettier": "^2.7.1"
+  }
+}
