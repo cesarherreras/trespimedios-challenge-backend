@@ -12,3 +12,5 @@ router.post('/login',
       next(error);
     }
 });
+
+module.exports = router;

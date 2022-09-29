@@ -67,7 +67,7 @@ module.exports = {
       },
       roleId: {
         field: 'role_id',
-        type: Sequelize.INTEGER
+        type: Sequelize.DataTypes.UUID
       }
     });
     await queryInterface.createTable(SALE_TABLE, {
@@ -79,11 +79,11 @@ module.exports = {
       },
       productId: {
         field: 'product_id',
-        type: Sequelize.INTEGER
+        type: Sequelize.DataTypes.UUID
       },
       userId: {
         field: 'user_id',
-        type: Sequelize.INTEGER
+        type: Sequelize.DataTypes.UUID
       },
       qty: {
         allowNull: false,

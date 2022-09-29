@@ -10,9 +10,6 @@ module.exports = {
     await queryInterface.changeColumn(PRODUCT_TABLE, 'id', {
       type: Sequelize.UUID,
     });
-    await queryInterface.changeColumn(USER_TABLE, 'role_id', {
-      type: Sequelize.UUID,
-    });
     await queryInterface.changeColumn(ROLE_TABLE, 'id', {
       type: Sequelize.UUID,
     });
@@ -20,12 +17,6 @@ module.exports = {
       type: Sequelize.UUID,
     });
     await queryInterface.changeColumn(USER_TABLE, 'id', {
-      type: Sequelize.UUID,
-    });
-    await queryInterface.changeColumn(SALE_TABLE, 'product_id', {
-      type: Sequelize.UUID,
-    });
-    await queryInterface.changeColumn(SALE_TABLE, 'user_id', {
       type: Sequelize.UUID,
     });
   },
@@ -43,18 +34,9 @@ module.exports = {
       autoIncrement: true,
       type: Sequelize.INTEGER,
     });
-    await queryInterface.changeColumn(SALE_TABLE, 'product_id', {
-      type: Sequelize.INTEGER
-    });
-    await queryInterface.changeColumn(SALE_TABLE, 'user_id', {
-      type: Sequelize.INTEGER
-    });
     await queryInterface.changeColumn(USER_TABLE, 'id', {
       autoIncrement: true,
       type: Sequelize.INTEGER,
-    });
-    await queryInterface.changeColumn(USER_TABLE, 'role_id', {
-      type: Sequelize.INTEGER
     });
   }
 };

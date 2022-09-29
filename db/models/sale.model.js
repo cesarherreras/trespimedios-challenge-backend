@@ -47,8 +47,10 @@ const SaleSchema = {
 
 class Sale extends Model {
   static associate(models) {
-    this.belongsTo(models.User, { as: 'usersSale' });
-    this.belongsTo(models.Product, { as: 'products' });
+    this.belongsTo(models.Product, {
+      as: 'products',
+      foreignKey: 'productId'
+    })
   }
 
   static config(sequelize) {

@@ -7,6 +7,7 @@ class UserService {
 
   async create(data) {
     const hash = await bcrypt.hash(data.password, 10);
+    console.log(data)
     const newUser = await models.User.create({
       ...data,
       password: hash
@@ -16,15 +17,21 @@ class UserService {
   }
 
   async find() {
-    const rta = await models.User.findAll({
-      attributes: [`id`, `document`, `name`, `lastName`, `password`, `roleId`]
-    });
+    const rta = await models.User.findAll();
     return rta;
   }
 
   async findOne(id) {
-    const user = await models.User.findByPk(id, {
-      attributes: [`id`, `document`, `name`, `lastName`, `password`, `roleId`]
+    const user = await models.User.findByPk(id);
+    if (!user) {
+      throw boom.notFound('user not found');
+    }
+    return user;
+  }
+
+  async findByDocument(document) {
+    const user = await models.User.findOne({
+      where: {document}
     });
     if (!user) {
       throw boom.notFound('user not found');

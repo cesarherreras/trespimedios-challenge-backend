@@ -11,7 +11,6 @@ function setupModels(sequelize) {
 
   User.associate(sequelize.models);
   Sale.associate(sequelize.models);
-  Product.associate(sequelize.models);
   Role.associate(sequelize.models);
 }
 

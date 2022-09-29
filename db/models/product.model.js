@@ -11,7 +11,7 @@ const ProductSchema = {
   },
   name: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: false
   },
   description: {
     type: DataTypes.TEXT,
@@ -24,11 +24,7 @@ const ProductSchema = {
 };
 
 class Product extends Model {
-  static associate(models) {
-    this.hasMany(models.Sale, {
-      as: 'productSale',
-      foreignKey: 'productId'
-    })
+  static associate() {
   }
 
   static config(sequelize) {
