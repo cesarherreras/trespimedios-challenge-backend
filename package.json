@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint --ignore-path .gitignore",
-    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|json)\""
+    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|json)\"",
+    "migrations:generate": "sequelize-cli migration:generate --name",
+    "migrations:run": "sequelize-cli db:migrate",
+    "migrations:revert": "sequelize-cli db:migrate:undo",
+    "migrations:delete": "sequelize-cli db:migrate:undo:all"
   },
   "keywords": [
     "Node.js",
@@ -18,9 +22,14 @@
   "devDependencies": {
     "eslint": "^8.24.0",
     "eslint-config-prettier": "^8.5.0",
+    "nodemon": "^2.0.20",
     "prettier": "^2.7.1"
   },
   "dependencies": {
-    "pg": "^8.8.0"
+    "dotenv": "^16.0.2",
+    "pg": "^8.8.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.23.2",
+    "sequelize-cli": "^6.5.1"
   }
 }
