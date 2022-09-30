@@ -5,7 +5,6 @@ class ProductService {
   constructor() {}
 
   async create(data) {
-    console.log(data)
     const newProduct = await models.Product.create(data);
     return newProduct;
   }

@@ -40,14 +40,19 @@ class SaleService {
 
   async delete(id) {
     const sale = await this.findOne(id);
-    await sale.destroy();
-    return `Sale ${id} was deleted`;
+    await models.Sale.destroy({
+      where: {id: sale.id}
+    });
+    return `Sale ${sale.id} was deleted`;
   }
 
   async update(id, changes) {
     const sale = await this.findOne(id);
-    const rta = await sale.update(changes);
-    return rta;
+    await models.Sale.update(changes, {
+      where: {id: sale.id}
+    });
+    const saleUpdated = await this.findOne(id);
+    return saleUpdated;
   }
 
   async getDaily(day) {
